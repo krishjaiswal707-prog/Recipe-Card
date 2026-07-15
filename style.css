@@ -7,8 +7,11 @@
   --font-heading: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', Georgia, serif;
 
-  /* Bakery Warm Palette (Default Light Theme) */
-  --bg-app: radial-gradient(circle at top left, #fdf9f4 0%, #f4e8db 100%);
+  /* Bakery Warm Palette (Default Light Theme - Carrara Marble veining) */
+  --bg-app: linear-gradient(135deg, rgba(253, 249, 244, 0.95) 0%, rgba(244, 232, 219, 0.92) 100%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600' viewBox='0 0 600 600'%3E%3Cpath d='M30 570 Q 150 510 210 520 T 420 420 T 570 300' fill='none' stroke='rgba(54, 34, 29, 0.025)' stroke-width='2'/%3E%3Cpath d='M15 30 Q 250 200 350 140 T 580 20' fill='none' stroke='rgba(54, 34, 29, 0.015)' stroke-width='1.5'/%3E%3Cpath d='M120 270 Q 300 360 420 330 T 525 570' fill='none' stroke='rgba(54, 34, 29, 0.02)' stroke-width='1'/%3E%3C/svg%3E"),
+            #fdf9f4;
+  --bg-size: cover, 600px 600px, auto;
   --bg-card: #ffffff;
   --bg-control: #faf6f0;
   --text-main: #36221d; /* Deep chocolate brown */
@@ -40,7 +43,10 @@
 
 /* Dark Theme Toggle Override */
 [data-theme="dark"] {
-  --bg-app: radial-gradient(circle at top left, #1c0e11 0%, #080304 100%);
+  --bg-app: linear-gradient(135deg, rgba(28, 14, 17, 0.93) 0%, rgba(8, 3, 4, 0.97) 100%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 0l40 40-40 40L0 40z' fill='none' stroke='rgba(212, 175, 55, 0.04)' stroke-width='1.2'/%3E%3Crect x='36' y='36' width='8' height='8' fill='none' stroke='rgba(212, 175, 55, 0.06)' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='22' fill='none' stroke='rgba(212, 175, 55, 0.025)' stroke-width='1'/%3E%3Cpath d='M0 0l8 8m64-8l-8 8M0 80l8-8m64 8l-8-8' stroke='rgba(212, 175, 55, 0.03)' stroke-width='1'/%3E%3C/svg%3E"),
+            #080304;
+  --bg-size: cover, 80px 80px, auto;
   --bg-card: rgba(28, 16, 19, 0.75);
   --bg-control: rgba(13, 7, 9, 0.85);
   --text-main: #fdfbfb;
@@ -75,6 +81,7 @@
 body {
   font-family: var(--font-primary);
   background: var(--bg-app);
+  background-size: var(--bg-size, cover);
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
