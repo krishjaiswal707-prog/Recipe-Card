@@ -145,7 +145,8 @@ body::before, body::after {
   gap: 2rem;
   overflow: hidden;
   position: relative;
-  transition: background var(--transition-slow), border-color var(--transition-normal);
+  transition: background var(--transition-slow), border-color var(--transition-normal), transform 0.18s ease-out;
+  transform-style: preserve-3d;
   animation: cardFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -1124,6 +1125,41 @@ body::before, body::after {
 @keyframes floatIcon {
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-8px) rotate(8deg); }
+}
+
+/* Particle Background elements */
+.particle-container {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--particle-color, var(--accent-gold));
+  filter: blur(8px);
+  opacity: 0.12;
+  animation: floatUp 25s infinite linear;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--particle-opacity, 0.12);
+  }
+  90% {
+    opacity: var(--particle-opacity, 0.12);
+  }
+  100% {
+    transform: translateY(-10vh) translateX(60px) scale(1.2);
+    opacity: 0;
+  }
 }
 
 /* ==========================================================================

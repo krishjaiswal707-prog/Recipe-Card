@@ -75,6 +75,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set default theme from localStorage or default to light warm bakery style
   const savedTheme = localStorage.getItem('theme') || 'light';
   htmlElement.setAttribute('data-theme', savedTheme);
+  createParticles(); // Initialize background bokeh particles
+  setup3DTilt();     // Initialize 3D hover effect
 
   // ==========================================================================
   // EVENT LISTENERS
@@ -86,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
+    createParticles(); // Re-trigger colored particles matching the theme
   });
   
   printBtn.addEventListener('click', () => {
@@ -419,6 +422,75 @@ document.addEventListener('DOMContentLoaded', () => {
     // Visual alert state (add pulsing outline)
     const timerWidget = document.querySelector('.timer-wrapper');
     timerWidget.classList.add('expired');
+  }
+
+  /**
+   * Generates floating background bokeh particles matching current theme colors
+   */
+  function createParticles() {
+    const container = document.getElementById('particle-container');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    const colors = {
+      light: ['#c6941a', '#e8cfa6', '#ebd4bc', '#b38b7e'],
+      dark: ['#d4af37', '#801c27', '#8c6a25', '#4a0d15']
+    };
+    
+    const themeColors = colors[currentTheme] || colors.light;
+    const particleCount = 18;
+    
+    for (let i = 0; i < particleCount; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      const size = Math.floor(Math.random() * 45) + 15;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      particle.style.left = `${Math.random() * 100}vw`;
+      
+      const delay = Math.random() * 20;
+      const duration = Math.random() * 15 + 15;
+      particle.style.animationDelay = `${delay}s`;
+      particle.style.animationDuration = `${duration}s`;
+      
+      const randomColor = themeColors[Math.floor(Math.random() * themeColors.length)];
+      particle.style.setProperty('--particle-color', randomColor);
+      
+      const opacity = Math.random() * 0.12 + 0.05;
+      particle.style.setProperty('--particle-opacity', opacity);
+      
+      container.appendChild(particle);
+    }
+  }
+
+  /**
+   * Initializes 3D hover mouse move tilt effect
+   */
+  function setup3DTilt() {
+    const card = document.querySelector('.recipe-card-container');
+    if (!card) return;
+    
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      
+      // Calculate rotation degree (max 3 degrees)
+      const rotateX = -(y - centerY) / 38;
+      const rotateY = (x - centerX) / 38;
+      
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    });
   }
 
 });
