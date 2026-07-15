@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gourmet Molten Chocolate Lava Cake | Interactive Recipe Card</title>
+  
+  <!-- Google Fonts for refined editorial and sans-serif pairing -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Card container centered explicitly using box model guidelines -->
+  <main class="recipe-card-container">
+    
+    <!-- Header Section -->
+    <header class="recipe-header">
+      <div class="header-main">
+        <div class="logo-wrapper">
+          <span class="chef-icon">👨‍🍳</span>
+          <span class="logo-text">Gourmet Kitchen</span>
+        </div>
+        <div class="header-actions">
+          <button id="theme-toggle" class="btn btn-secondary" aria-label="Toggle visual theme">
+            <!-- Sun / Moon SVGs -->
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <span class="btn-text">Theme</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Image Section -->
+    <section class="hero-section">
+      <div class="hero-image-wrapper">
+        <img id="recipe-image" src="assets/lava-cake.png" alt="Decadent Molten Chocolate Lava Cake with raspberry garnish" class="hero-image">
+        <div class="difficulty-tag">Intermediate</div>
+      </div>
+    </section>
+
+    <!-- Title & One-line Tagline Section -->
+    <section class="title-section">
+      <h1 class="recipe-title">Decadent Molten Chocolate Lava Cake 🍰</h1>
+      <p class="recipe-tagline">A rich, warm chocolate cake shell with a signature velvety, flowing molten chocolate core.</p>
+    </section>
+
+    <!-- Meta Bar Stats Section -->
+    <section class="meta-stats-bar">
+      <!-- Prep Card -->
+      <div class="stat-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <div class="stat-info">
+          <span class="stat-label">Prep Time</span>
+          <span class="stat-value"><time datetime="PT15M">15 mins</time></span>
+        </div>
+      </div>
+      <!-- Cook Card -->
+      <div class="stat-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <div class="stat-info">
+          <span class="stat-label">Cook Time</span>
+          <span class="stat-value"><time datetime="PT12M">12 mins</time></span>
+        </div>
+      </div>
+      <!-- Total Card -->
+      <div class="stat-card highlight">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+        <div class="stat-info">
+          <span class="stat-label">Total Time</span>
+          <span class="stat-value"><time datetime="PT27M">27 mins</time></span>
+        </div>
+      </div>
+      <!-- Servings Card with multiplier stepper -->
+      <div class="stat-card servings-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        <div class="stat-info">
+          <span class="stat-label">Servings</span>
+          <div class="servings-stepper">
+            <button id="servings-dec" class="btn-servings" aria-label="Decrease servings">-</button>
+            <span id="servings-count" data-base="4">4</span>
+            <button id="servings-inc" class="btn-servings" aria-label="Increase servings">+</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ingredients Section (Collapsible by default) -->
+    <section class="recipe-section" id="ingredients-section">
+      <button class="section-accordion-header" id="toggle-ingredients-btn" aria-expanded="false" aria-controls="ingredients-content">
+        <div class="section-title-wrapper">
+          <span class="section-icon">🛒</span>
+          <h2>Ingredients</h2>
+        </div>
+        <div class="accordion-indicators">
+          <span class="checked-badge" id="ingredients-checked-count">0 / 8 gathered</span>
+          <span class="btn-text">Show Ingredients</span>
+          <!-- Chevron SVG -->
+          <svg id="ingredients-chevron" class="chevron-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </div>
+      </button>
+      
+      <div class="section-accordion-content collapsible-panel" id="ingredients-content">
+        <p class="checklist-hint">Tap ingredients to check them off as you gather them:</p>
+        <ul class="ingredients-list">
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="0.5">0.5</span> cup (<span class="qty" data-base="115">115</span>g) unsalted butter, plus extra for greasing
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="4">4</span> oz (<span class="qty" data-base="115">115</span>g) high-quality bittersweet chocolate, chopped
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="2">2</span> large eggs, at room temperature
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="2">2</span> large egg yolks, at room temperature
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="0.25">0.25</span> cup (<span class="qty" data-base="50">50</span>g) granulated sugar
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="0.125">0.125</span> tsp fine salt
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="2">2</span> tbsp (<span class="qty" data-base="16">16</span>g) all-purpose flour
+              </span>
+            </label>
+          </li>
+          <li class="ingredient-item">
+            <label class="ingredient-checkbox-label">
+              <input type="checkbox" class="ingredient-checkbox">
+              <span class="checkbox-box"></span>
+              <span class="ingredient-text">
+                <span class="qty" data-base="1">1</span> scoop premium vanilla bean ice cream, or whipped cream for serving
+              </span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Instructions Section -->
+    <section class="recipe-section" id="instructions-section">
+      <div class="instructions-header">
+        <div class="section-title-wrapper">
+          <span class="section-icon">🍳</span>
+          <h2>Preparation Steps</h2>
+        </div>
+      </div>
+
+      <!-- Cooking Wizard Control Panel (embedded inline right above the steps list) -->
+      <div class="cooking-wizard-dashboard" id="cooking-wizard-section">
+        <!-- Default State: Start Button -->
+        <button id="start-cooking-btn" class="btn btn-primary btn-large">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+          Start Cooking
+        </button>
+
+        <!-- Active Stepper Interface (hidden by default) -->
+        <div id="wizard-controls" class="wizard-interface-wrapper hidden">
+          <div class="wizard-top-row">
+            <div class="wizard-progress-info">
+              <span id="progress-text" class="progress-steps-label">Step 1 of 6</span>
+              <span id="progress-percent-text" class="progress-percent-badge">16%</span>
+            </div>
+            <!-- Timer Widget -->
+            <div class="timer-wrapper">
+              <svg class="timer-clock-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span id="timer-time" class="timer-clock">15:00</span>
+              <div class="timer-actions">
+                <button id="timer-play-pause-btn" class="btn-timer-icon" aria-label="Play or Pause timer">
+                  <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                </button>
+                <button id="timer-reset-btn" class="btn-timer-icon" aria-label="Reset timer">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Smooth Fills Horizontal Progress Bar -->
+          <div class="wizard-progress-track">
+            <div id="cooking-progress-bar" class="wizard-progress-fill"></div>
+          </div>
+
+          <div class="wizard-button-row">
+            <button id="prev-step-btn" class="btn btn-secondary" disabled>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              Prev Step
+            </button>
+            <button id="next-step-btn" class="btn btn-primary">
+              Next Step
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </button>
+          </div>
+        </div>
+        
+        <button id="exit-cooking-btn" class="btn btn-close hidden">Exit Cooking Mode</button>
+      </div>
+
+      <!-- Accordion container for preparation instructions steps -->
+      <div class="section-accordion-content expanded" id="instructions-content">
+        <ol class="steps-list">
+          <li class="step-item" id="step-card-1">
+            <div class="step-card-header">
+              <div class="step-number">1</div>
+              <h3 class="step-title">Prep & Preheat</h3>
+            </div>
+            <p class="step-text">Preheat oven to 425°F (218°C). Butter and lightly flour four 6-ounce ramekins, tapping out excess flour to prevent sticking.</p>
+          </li>
+          <li class="step-item" id="step-card-2">
+            <div class="step-card-header">
+              <div class="step-number">2</div>
+              <h3 class="step-title">Melt Chocolate & Butter</h3>
+            </div>
+            <p class="step-text">Melt the butter and chopped bittersweet chocolate together in a double boiler or in a microwave-safe bowl in 20-second increments, stirring until smooth. Let cool slightly.</p>
+          </li>
+          <li class="step-item" id="step-card-3">
+            <div class="step-card-header">
+              <div class="step-number">3</div>
+              <h3 class="step-title">Whisk Eggs & Sugar</h3>
+            </div>
+            <p class="step-text">In a medium bowl, vigorously whisk the whole eggs, egg yolks, sugar, and salt together until pale, thickened, and slightly voluminous (about 2-3 minutes of rapid whisking).</p>
+          </li>
+          <li class="step-item" id="step-card-4">
+            <div class="step-card-header">
+              <div class="step-number">4</div>
+              <h3 class="step-title">Combine & Fold</h3>
+            </div>
+            <p class="step-text">Gently fold the cooled melted chocolate mixture and the flour into the egg mixture using a rubber spatula until just combined. Be careful not to overmix to maintain cake texture.</p>
+          </li>
+          <li class="step-item" id="step-card-5">
+            <div class="step-card-header">
+              <div class="step-number">5</div>
+              <h3 class="step-title">Pour & Bake</h3>
+            </div>
+            <p class="step-text">Divide the batter evenly among the prepared ramekins. Bake for 12-14 minutes until the outer edges are set and firm, but the center still jiggles slightly (indicating a molten core).</p>
+          </li>
+          <li class="step-item" id="step-card-6">
+            <div class="step-card-header">
+              <div class="step-number">6</div>
+              <h3 class="step-title">Invert & Serve</h3>
+            </div>
+            <p class="step-text">Let cooling in ramekins for exactly 1 minute. Place an inverted dessert plate over the top of each ramekin, carefully invert it, and lift the ramekin. Garnish with vanilla ice cream and raspberry.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="recipe-footer">
+      <div class="footer-buttons">
+        <button id="print-btn" class="btn btn-secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          Print Recipe
+        </button>
+      </div>
+      <p class="footer-credits">Baked with passion by Gourmet Kitchen. Designed for premium chefs.</p>
+    </footer>
+
+  </main>
+
+  <!-- Visual/Beep alert sound when timer expires -->
+  <audio id="timer-alert" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-200.wav" preload="auto"></audio>
+
+  <!-- Congratulatory Modal Overlay (JS Modal animation trigger) -->
+  <div id="congrats-overlay" class="modal-overlay hidden" tabindex="-1">
+    <div class="congrats-modal" role="dialog" aria-modal="true" aria-labelledby="congrats-title">
+      <div class="congrats-icon">🎉</div>
+      <h2 id="congrats-title">Bon Appétit!</h2>
+      <p class="congrats-description">Congratulations! Your Molten Chocolate Lava Cake is baked to perfection and ready to serve. Enjoy your warm, flowing chocolate dessert! 🍰</p>
+      <button id="congrats-close-btn" class="btn btn-primary">Done</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
